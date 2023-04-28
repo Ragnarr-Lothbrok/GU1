@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -59,6 +59,6 @@ public class GameManager : MonoBehaviour
     {
         int movementState = 0;
 
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies) ;
     }
 }

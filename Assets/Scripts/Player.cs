@@ -1,5 +1,7 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,16 +14,19 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        speed = 5f;
+        rb = GetComponent<Rigidbody2D>();
+        speed = 500f;
     }
+
 
     void Update()
     {
-        moveInput.x = moveInput.GetAxisRaw("Horizontal");
-        moveInput.y = moveInput.GetAxisRaw("Vertical");
+        //so clean, so smooth.
+        float moveInputX = Input.GetAxisRaw("Horizontal");
+        float moveInputY = Input.GetAxisRaw("Vertical");
 
-        moveInput.Normalized();
-
-        rb.velocity = moveInput * speed;
+        moveInput = new Vector2 (moveInputX, moveInputY).normalized;
+        Debug.Log("input test ="+moveInput);
+        rb.velocity = moveInput * speed * Time.deltaTime;
     }   
 }
