@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
 
+    private Vector2 moveInput;
+
     void Start()
     {
         speed = 5f;
@@ -15,10 +17,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        moveInput.x = moveInput.GetAxisRaw("Horizontal");
+        moveInput.y = moveInput.GetAxisRaw("Vertical");
 
-        rb.velocity = new Vector2(x, 0) * speed;
+        moveInput.Normalized();
 
+        rb.velocity = moveInput * speed;
     }   
 }
