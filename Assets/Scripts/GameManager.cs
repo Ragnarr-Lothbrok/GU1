@@ -7,14 +7,11 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public List<GameObject> enemies = new List<GameObject>();
-    public GameObject theEndButtons;
-
-    public TextMeshProUGUI scoreHolder;
-    public int theScore = 0;
-
+    
     public bool isleft = true;
     public float enemyMoveSpace = 2f;
-    public float buffer = .2f;
+    
+ public float buffer = .2f;
 
     float height = 0;
     float width = 0;
@@ -33,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("");
     }
 
     private void Update()
@@ -55,10 +52,75 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void MoveHorizontal(GameObject theEnemy)
+    {
+        if(isleft)
+        {
+            float newPos = theEnemy.transform.position.x - enemyMoveSpace;
+
+            theEnemy.transform.position = new Vector3(newPos, theEnemy.transform.position.y);
+        }
+        else
+        {
+            float newPos = theEnemy.transform.position.y - enemyMoveSpace;
+
+            theEnemy.transform.position = new Vector3(newPos, theEnemy.transform.position.y);
+        }
+    }
+
+    private void MoveVertical(GameObject theEnemy)
+    {
+        float newPos = theEnemy.transform.position.y - enemyMoveSpace;
+
+        theEnemy.transform.position = new Vector3(newPos, theEnemy.transform.position.x, newPos);
+    }
+
     public void MovementControl()
     {
         int movementState = 0;
 
-        foreach (GameObject enemy in enemies) ;
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                MoveHorizontal(enemy);
+            }
+
+            if (enemy.transform.position.x <= 0 - width / 2 + buffer)
+            {
+                movementState = 1;
+            }
+            else
+            if (enemy.transform.position.x >= 0 + width / 2 - buffer)
+            {
+                movementState = 2;
+            }
+        }
+
+        if(movementState == 1)
+        {
+            isleft = false;
+            movementState = 0;
+            foreach(GameObject enemy in enemies)
+            {
+                if(enemy != null)
+                {
+                    MoveVertical(enemy);
+                }
+            }
+        }
+        else
+            if(movementState == 2)
+        {
+            isleft = true;
+            movementState = 0;
+            foreach(GameObject enemy in enemies)
+            {
+                if(enemy != null)
+                {
+                    MoveVertical(enemy);
+                }
+            }
+        }
     }
 }
