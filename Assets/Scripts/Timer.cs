@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI tmpGUI; // Reference to the TextMeshProUGUI component that displays the time
     private float startTime; // The time when the timer starts
     private bool timerIsRunning = false; // Flag to indicate if the timer is currently running
-    private float originalTimeLimit = 900f; // The original time limit for the timer in seconds
+    private float originalTimeLimit = 3f; // The original time limit for the timer in seconds
     private float timeLimit; // The current time limit for the timer in seconds
 
     void Start()
@@ -38,8 +38,8 @@ public class Timer : MonoBehaviour
             // Check if the time limit has been reached
             if (t >= timeLimit)
             {
-                // If the time limit has been reached, load the Boss_Splash scene
-                SceneManager.LoadScene("Boss_Splash");
+                // If the time limit has been reached, load the ChurchSplash scene
+                SceneManager.LoadScene("ChurchSplash");
 
                 // Stop the timer by setting the flag to false
                 timerIsRunning = false;

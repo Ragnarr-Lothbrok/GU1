@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: 
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level.unity
     guid: f101a81cc9e393a4b90287e95fb1bd63
   - enabled: 1
-    path: Assets/Scenes/Boss_Splash.unity
+    path: Assets/Scenes/ChurchSplash.unity
     guid: 1dc3d1de0ca12fa4aaa2be2f4e138b1a
+  - enabled: 1
+    path: Assets/Scenes/BossRoom.unity
+    guid: 1917f72ae27256045ae8d5fa83065595
   m_configObjects: {}
