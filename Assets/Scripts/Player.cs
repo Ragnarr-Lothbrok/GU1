@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     private Vector2 moveInput;
 
+    public GameObject crossbowPF;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,5 +30,10 @@ public class Player : MonoBehaviour
         moveInput = new Vector2 (moveInputX, moveInputY).normalized;
         Debug.Log("input test ="+moveInput);
         rb.velocity = moveInput * speed * Time.deltaTime;
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(crossbowPF, gameObject.transform);
+        }
     }   
 }
