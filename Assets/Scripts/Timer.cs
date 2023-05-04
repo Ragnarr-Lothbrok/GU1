@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
 
             if (t >= timeLimit)
             {
-                SceneManager.LoadScene("BossSplash");
+                SceneManager.LoadScene("Boss_Splash");
             }
         }
     }
