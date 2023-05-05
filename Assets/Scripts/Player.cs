@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class Player : MonoBehaviour
     public float speed;
     public int health;
     private Rigidbody2D rb;
+
+    //Damage Cooldown
+    private float damageCoolDown = 1f;
+    private bool invulnerable = false;
 
     private Vector2 moveInput;
 
@@ -37,6 +42,20 @@ public class Player : MonoBehaviour
             Instantiate(crossbowPF, gameObject.transform);
         }
     }
+
+    void OnDamage()
+    {
+        if (invulnerable) return;
+        invulnerable = true;
+        StartCoroutine(DamageCoolDown());
+    }
+
+    private IEnumerator DamageCoolDown()
+    {
+        yield return new WaitForSeconds(damageCoolDown);
+        invulnerable = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
