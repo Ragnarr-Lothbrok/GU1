@@ -35,5 +35,13 @@ public class Player : MonoBehaviour
         {
             Instantiate(crossbowPF, gameObject.transform);
         }
-    }   
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Debug.Log("Collision Working");
+        }
+
+    }
 }
