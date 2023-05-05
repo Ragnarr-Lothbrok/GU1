@@ -8,6 +8,8 @@ public class MainMenuController : MonoBehaviour
     public Button rulesButton;
     public Button quitButton;
 
+    public GameObject openingText;
+
     void Start()
     {
         // Add event listeners to the buttons
@@ -18,7 +20,7 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level");
+        openingText.SetActive(true);
     }
 
     public void LoadRules()
