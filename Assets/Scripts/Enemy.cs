@@ -9,7 +9,9 @@ public class Enemy : MonoBehaviour
     public Vector2 moveToPlayer;
     public Rigidbody2D rb;
     public Vector2 localScale;
-    public float enemyMoveSpeed = 2f;
+    public float enemyMoveSpeed;
+    public int enemyHealth;
+    public int enemyDamage;
 
     private Transform playerTrans;
 
