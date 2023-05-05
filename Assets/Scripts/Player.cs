@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
 
     public float speed;
+    public int health;
     private Rigidbody2D rb;
 
     private Vector2 moveInput;

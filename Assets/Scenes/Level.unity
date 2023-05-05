@@ -789,6 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  health: 5
   crossbowPF: {fileID: 0}
 --- !u!61 &1626425057
 BoxCollider2D:
