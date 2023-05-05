@@ -8,10 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public List<GameObject> enemies = new List<GameObject>();
     
-    public bool isleft = true;
-    public float enemyMoveSpace = 2f;
-    
- public float buffer = .2f;
+    public float buffer = .2f;
 
     float height = 0;
     float width = 0;
@@ -19,6 +16,12 @@ public class GameManager : MonoBehaviour
     public float timeBetweenMoves = 1f;
     public float currentTime;
     public float endPoint = 0;
+
+//Enemy Movement Variables
+    public Vector2 moveToPlayer;
+    public Rigidbody2D rb;
+    public Vector2 localScale;
+    public float enemyMoveSpeed = 2f;
 
     public void Start()
     {
@@ -35,92 +38,27 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        currentTime -= Time.deltaTime;
+       
+      //  MoveEnemy();
 
-        if(currentTime < 0)
-        {
-            {
-                MovementControl();
-            }
-
-            currentTime = timeBetweenMoves;
-        }
-
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            ResetGame();
-        }
     }
 
-    private void MoveHorizontal(GameObject theEnemy)
+    private void MoveEnemy(GameObject Enemy)
     {
-        if(isleft)
-        {
-            float newPos = theEnemy.transform.position.x - enemyMoveSpace;
-
-            theEnemy.transform.position = new Vector3(newPos, theEnemy.transform.position.y);
-        }
-        else
-        {
-            float newPos = theEnemy.transform.position.y - enemyMoveSpace;
-
-            theEnemy.transform.position = new Vector3(newPos, theEnemy.transform.position.y);
-        }
+       // moveToPlayer = (Player.transform.position - transform.position).normalized;
+       // rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
     }
 
-    private void MoveVertical(GameObject theEnemy)
+    private void LateUpdate()
     {
-        float newPos = theEnemy.transform.position.y - enemyMoveSpace;
-
-        theEnemy.transform.position = new Vector3(newPos, theEnemy.transform.position.x, newPos);
-    }
-
-    public void MovementControl()
-    {
-        int movementState = 0;
-
-        foreach (GameObject enemy in enemies)
+        if (rb.velocity.x > 0)
         {
-            if (enemy != null)
-            {
-                MoveHorizontal(enemy);
-            }
-
-            if (enemy.transform.position.x <= 0 - width / 2 + buffer)
-            {
-                movementState = 1;
-            }
-            else
-            if (enemy.transform.position.x >= 0 + width / 2 - buffer)
-            {
-                movementState = 2;
-            }
+            transform.localScale = new Vector2(localScale.x, localScale.y);
         }
 
-        if(movementState == 1)
+        else if (rb.velocity.x < 0)
         {
-            isleft = false;
-            movementState = 0;
-            foreach(GameObject enemy in enemies)
-            {
-                if(enemy != null)
-                {
-                    MoveVertical(enemy);
-                }
-            }
-        }
-        else
-            if(movementState == 2)
-        {
-            isleft = true;
-            movementState = 0;
-            foreach(GameObject enemy in enemies)
-            {
-                if(enemy != null)
-                {
-                    MoveVertical(enemy);
-                }
-            }
+            transform.localScale = new Vector2(-localScale.x, localScale.y);
         }
     }
 }
