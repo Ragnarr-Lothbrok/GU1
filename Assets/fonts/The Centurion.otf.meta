@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0e929915a3d5d034ba205cb251e3b640
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - The Centurion
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a886f889dcbcf3542b718bdd4a4ff102, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
