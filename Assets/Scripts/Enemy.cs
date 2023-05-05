@@ -31,5 +31,15 @@ public class Enemy : MonoBehaviour
     {
         moveToPlayer = (playerTrans.position - transform.position).normalized;
         rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
+
+        if(rb.velocity.x <= 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else 
+            if(rb.velocity.x > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 }
