@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ba88b99008a465b45813af5f7b89d4df
+guid: 31bb2fd4f88b5034ab7367f8472bbf0e
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,7 +10,8 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Vinque
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ba88b99008a465b45813af5f7b89d4df, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
