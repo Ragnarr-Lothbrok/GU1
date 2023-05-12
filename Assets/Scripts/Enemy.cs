@@ -11,15 +11,6 @@ public class Enemy : MonoBehaviour
     public Vector2 localScale;
     public float enemyMoveSpeed;
 
-    //Other Enemy Variables
-    public int enemyHealth;
-    public int enemyDamage;
-
-    //Boss Movement Extras
-    public bool pauseMove = false;
-    public float moveTimer = 0f;
-    public float pauseTimer = 0f;
-
     private Transform playerTrans;
 
     // Start is called before the first frame update
