@@ -13,6 +13,19 @@ public class Enemy : MonoBehaviour
     public float enemyMoveSpeed;
     private Transform playerTrans;
 
+    public bool isBoss = false;
+
+    //Other Enemy Variables
+    public int enemyHealth;
+    public int enemyDamage;
+
+    //Boss Movement Extras
+    public bool pauseMove = false;
+    public float moveTimer = 5f;
+    public float testTimer = 10f;
+    public float moveDuration;
+    public float pauseDuration;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,87 +35,66 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveTimer -= Time.deltaTime;
-        if(moveTimer <= 0)
-        {
-            //Enemy Stops
-            pauseMove = true;
-            pauseDuration = 3f;
+        //Bosses pause movement mechanic
 
-            pauseDuration -= Time.deltaTime;
-            if (pauseDuration <= 0)
-            {
-                moveTimer = 5f;
-            }
+        moveTimer -= Time.deltaTime;
+
+        if (moveTimer <= 0f && pauseMove == false)
+        {
+            pauseMove= true;
         }
 
         if (pauseMove == false)
         {
-            MoveEnemy();
+           MoveEnemy();
         }
-        
+
+        if(pauseMove == true)
+        {
+            pauseDuration -= Time.deltaTime;
+
+            if(pauseDuration <= 0f)
+            {
+                moveTimer = 5f;
+                pauseDuration = 3f;
+                testTimer = 10f;
+                pauseMove= false;
+            }
+        }
+
     }
 
     private void MoveEnemy()
     {
-
+        testTimer -= Time.deltaTime;
 
         moveToPlayer = (playerTrans.position - transform.position).normalized;
-        rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
 
-        if(rb.velocity.x <= 0)
+        if (isBoss == true)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else 
-            if(rb.velocity.x > 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
 
-
-        if(pauseDuration <= 0)
-        {
-            pauseDuration = 1f;
-            pauseMove = false;
-        }
-    }
-
-    //Other Enemy Variables
-    public int enemyHealth;
-    public int enemyDamage;
-
-    //Boss Movement Extras
-    public bool pauseMove = false;
-    public float moveTimer = 5f;
-    public float moveDuration;
-    public float pauseDuration;
-
-
-    //Bosses pause movement mechanic
-    private void StopBossMove()
-    {
-
-        moveTimer -= Time.deltaTime;
-        if (moveTimer <= 0)
-        {
-            if (pauseMove)
+            if (testTimer <= 6)
             {
-                moveTimer = moveDuration;
-                pauseMove = false;
+                rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * 0;
             }
             else
             {
-                moveTimer = pauseDuration;
-                pauseMove = true;
+                rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
             }
-
-            return;
+        }
+        else
+        {
+            rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
         }
 
-        if (!pauseMove)
+        if (rb.velocity.x <= 0)
         {
-            
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+            if (rb.velocity.x > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 }
