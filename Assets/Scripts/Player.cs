@@ -37,7 +37,17 @@ public class Player : MonoBehaviour
         Debug.Log("input test ="+moveInput);
         rb.velocity = moveInput * speed * Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (rb.velocity.x <= 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+           if (rb.velocity.x > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(crossbowPF, gameObject.transform);
         }

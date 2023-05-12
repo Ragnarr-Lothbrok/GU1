@@ -10,8 +10,6 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 localScale;
     public float enemyMoveSpeed;
-    public int enemyHealth;
-    public int enemyDamage;
 
     private Transform playerTrans;
 
@@ -31,5 +29,40 @@ public class Enemy : MonoBehaviour
     {
         moveToPlayer = (playerTrans.position - transform.position).normalized;
         rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
+
+        if(rb.velocity.x <= 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else 
+            if(rb.velocity.x > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
+
+    //Bosses pause movement mechanic
+    private void StopBossMove()
+    {
+
+        moveTimer += Time.deltaTime;
+        if (moveTimer > 5f) //timer for pause mechanic to trigger every 5 seconds
+        {
+            pauseMove = true;
+        }
+
+        if (pauseMove == true) //timer for the pause duration of 1 second starts
+        {
+            pauseTimer += Time.deltaTime;
+            enemyMoveSpeed = 0;
+
+}
+
+        if (pauseTimer > 1f) //if the pause is longer than one second the boss will start moving again
+        {
+            moveTimer = 0f;
+            enemyMoveSpeed = 5f;
+            pauseTimer= 0f;
+        }
     }
 }

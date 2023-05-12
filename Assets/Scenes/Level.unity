@@ -787,9 +787,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 187c82edbe51d3c4d8972989e443781b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  health: 5
+  m_EditorClassIdentifier:
   crossbowPF: {fileID: 0}
 --- !u!61 &1626425057
 BoxCollider2D:
