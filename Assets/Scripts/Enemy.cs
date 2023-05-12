@@ -11,17 +11,6 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 localScale;
     public float enemyMoveSpeed;
-
-    //Other Enemy Variables
-    public int enemyHealth;
-    public int enemyDamage;
-
-    //Boss Movement Extras
-    public bool pauseMove = false;
-    public float moveTimer = 5f;
-    public float moveDuration;
-    public float pauseDuration;
-
     private Transform playerTrans;
 
     // Start is called before the first frame update
@@ -78,6 +67,15 @@ public class Enemy : MonoBehaviour
             pauseMove = false;
         }
     }
+
+    //Other Enemy Variables
+    public int enemyHealth;
+    public int enemyDamage;
+
+    //Boss Movement Extras
+    public bool pauseMove = false;
+    public float moveTimer = 0f;
+    public float pauseTimer = 0f;
 
     //Bosses pause movement mechanic
     private void StopBossMove()
