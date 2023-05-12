@@ -74,8 +74,10 @@ public class Enemy : MonoBehaviour
 
     //Boss Movement Extras
     public bool pauseMove = false;
-    public float moveTimer = 0f;
-    public float pauseTimer = 0f;
+    public float moveTimer = 5f;
+    public float moveDuration;
+    public float pauseDuration;
+
 
     //Bosses pause movement mechanic
     private void StopBossMove()
