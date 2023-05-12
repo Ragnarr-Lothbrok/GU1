@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -10,7 +11,6 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 localScale;
     public float enemyMoveSpeed;
-
     private Transform playerTrans;
 
     // Start is called before the first frame update
@@ -22,11 +22,31 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveEnemy();
+        moveTimer -= Time.deltaTime;
+        if(moveTimer <= 0)
+        {
+            //Enemy Stops
+            pauseMove = true;
+            pauseDuration = 3f;
+
+            pauseDuration -= Time.deltaTime;
+            if (pauseDuration <= 0)
+            {
+                moveTimer = 5f;
+            }
+        }
+
+        if (pauseMove == false)
+        {
+            MoveEnemy();
+        }
+        
     }
 
     private void MoveEnemy()
     {
+
+
         moveToPlayer = (playerTrans.position - transform.position).normalized;
         rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
 
@@ -38,6 +58,13 @@ public class Enemy : MonoBehaviour
             if(rb.velocity.x > 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+
+        if(pauseDuration <= 0)
+        {
+            pauseDuration = 1f;
+            pauseMove = false;
         }
     }
 
@@ -54,24 +81,26 @@ public class Enemy : MonoBehaviour
     private void StopBossMove()
     {
 
-        moveTimer += Time.deltaTime;
-        if (moveTimer > 5f) //timer for pause mechanic to trigger every 5 seconds
+        moveTimer -= Time.deltaTime;
+        if (moveTimer <= 0)
         {
-            pauseMove = true;
+            if (pauseMove)
+            {
+                moveTimer = moveDuration;
+                pauseMove = false;
+            }
+            else
+            {
+                moveTimer = pauseDuration;
+                pauseMove = true;
+            }
+
+            return;
         }
 
-        if (pauseMove == true) //timer for the pause duration of 1 second starts
+        if (!pauseMove)
         {
-            pauseTimer += Time.deltaTime;
-            enemyMoveSpeed = 0;
-
-}
-
-        if (pauseTimer > 1f) //if the pause is longer than one second the boss will start moving again
-        {
-            moveTimer = 0f;
-            enemyMoveSpeed = 5f;
-            pauseTimer= 0f;
+            
         }
     }
 }
