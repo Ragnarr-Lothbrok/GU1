@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
 {
 
     public float speed;
-    public int health;
+    public int maxhealth = 5;
+    public int currentHealth;
     private Rigidbody2D rb;
 
     //Damage Cooldown
@@ -24,6 +25,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         speed = 500f;
+
+        currentHealth = maxhealth;
     }
 
 
@@ -70,8 +73,12 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("Collision Working");
+            currentHealth--;
         }
 
+    }
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
     }
 }
