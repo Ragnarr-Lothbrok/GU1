@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
 
 //Enemy Movement Variables
     public Vector2 moveToPlayer;
-    public Rigidbody2D rb;
     public Vector2 localScale;
     public float enemyMoveSpeed = 2f;
 
@@ -41,24 +40,5 @@ public class GameManager : MonoBehaviour
        
       //  MoveEnemy();
 
-    }
-
-    private void MoveEnemy(GameObject Enemy)
-    {
-       // moveToPlayer = (Player.transform.position - transform.position).normalized;
-       // rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
-    }
-
-    private void LateUpdate()
-    {
-        if (rb.velocity.x > 0)
-        {
-            transform.localScale = new Vector2(localScale.x, localScale.y);
-        }
-
-        else if (rb.velocity.x < 0)
-        {
-            transform.localScale = new Vector2(-localScale.x, localScale.y);
-        }
     }
 }
