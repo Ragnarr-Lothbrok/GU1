@@ -13,6 +13,18 @@ public class Enemy : MonoBehaviour
     public float enemyMoveSpeed;
     private Transform playerTrans;
 
+    //Other Enemy Variables
+    public int enemyHealth;
+    public int enemyDamage;
+
+    //Boss Movement Extras
+    public bool pauseMove = false;
+    public float moveTimer = 0f;
+    public float pauseTimer = 0f;
+
+    public float pauseDuration;
+    public float moveDuration;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,15 +79,6 @@ public class Enemy : MonoBehaviour
             pauseMove = false;
         }
     }
-
-    //Other Enemy Variables
-    public int enemyHealth;
-    public int enemyDamage;
-
-    //Boss Movement Extras
-    public bool pauseMove = false;
-    public float moveTimer = 0f;
-    public float pauseTimer = 0f;
 
     //Bosses pause movement mechanic
     private void StopBossMove()
