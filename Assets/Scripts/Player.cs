@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         float moveInputY = Input.GetAxisRaw("Vertical");
 
         moveInput = new Vector2 (moveInputX, moveInputY).normalized;
-        Debug.Log("input test ="+moveInput);
+      //  Debug.Log("input test ="+moveInput);
         rb.velocity = moveInput * speed * Time.deltaTime;
 
         if (rb.velocity.x <= 0)
