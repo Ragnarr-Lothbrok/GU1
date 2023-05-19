@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -10,8 +11,20 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 localScale;
     public float enemyMoveSpeed;
-
     private Transform playerTrans;
+
+    public bool isBoss = false;
+
+    //Other Enemy Variables
+    public int enemyHealth;
+    public int enemyDamage;
+
+    //Boss Movement Extras
+    public bool pauseMove = false;
+    public float moveTimer = 5f;
+    public float testTimer = 10f;
+    public float moveDuration;
+    public float pauseDuration;
 
     // Start is called before the first frame update
     void Start()
@@ -22,56 +35,66 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveEnemy();
+        //Bosses pause movement mechanic
+
+        moveTimer -= Time.deltaTime;
+
+        if (moveTimer <= 0f && pauseMove == false)
+        {
+            pauseMove= true;
+        }
+
+        if (pauseMove == false)
+        {
+           MoveEnemy();
+        }
+
+        if(pauseMove == true)
+        {
+            pauseDuration -= Time.deltaTime;
+
+            if(pauseDuration <= 0f)
+            {
+                moveTimer = 5f;
+                pauseDuration = 3f;
+                testTimer = 10f;
+                pauseMove= false;
+            }
+        }
+
     }
 
     private void MoveEnemy()
     {
-        moveToPlayer = (playerTrans.position - transform.position).normalized;
-        rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
+        testTimer -= Time.deltaTime;
 
-        if(rb.velocity.x <= 0)
+        moveToPlayer = (playerTrans.position - transform.position).normalized;
+
+        if (isBoss == true)
+        {
+
+            if (testTimer <= 6)
+            {
+                rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * 0;
+            }
+            else
+            {
+                rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
+            }
+        }
+        else
+        {
+            rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
+        }
+
+        if (rb.velocity.x <= 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
-        else 
-            if(rb.velocity.x > 0)
+        else
+            if (rb.velocity.x > 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
-        }
-    }
-
-    //Other Enemy Variables
-    public int enemyHealth;
-    public int enemyDamage;
-
-    //Boss Movement Extras
-    public bool pauseMove = false;
-    public float moveTimer = 0f;
-    public float pauseTimer = 0f;
-
-    //Bosses pause movement mechanic
-    private void StopBossMove()
-    {
-
-        moveTimer += Time.deltaTime;
-        if (moveTimer > 5f) //timer for pause mechanic to trigger every 5 seconds
-        {
-            pauseMove = true;
-        }
-
-        if (pauseMove == true) //timer for the pause duration of 1 second starts
-        {
-            pauseTimer += Time.deltaTime;
-            enemyMoveSpeed = 0;
-
-}
-
-        if (pauseTimer > 1f) //if the pause is longer than one second the boss will start moving again
-        {
-            moveTimer = 0f;
-            enemyMoveSpeed = 5f;
-            pauseTimer= 0f;
         }
     }
 }
