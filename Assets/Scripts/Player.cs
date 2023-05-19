@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
@@ -54,6 +55,11 @@ public class Player : MonoBehaviour
         {
             Instantiate(crossbowPF, gameObject.transform);
         }
+
+        if (currentHealth <= 0)
+        {
+            GameOver();
+        }
     }
 
     void OnDamage()
@@ -81,4 +87,10 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
     }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("LoseScene");
+    }
+
 }

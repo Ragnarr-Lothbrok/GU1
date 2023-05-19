@@ -7,7 +7,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public List<GameObject> enemies = new List<GameObject>();
-    
+
     public float buffer = .2f;
 
     float height = 0;
@@ -33,10 +33,5 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         SceneManager.LoadScene("");
-    }
-
-    private void Update()
-    {
-     //  MoveEnemy(); 
     }
 }

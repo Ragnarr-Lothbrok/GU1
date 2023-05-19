@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -81,6 +83,11 @@ public class Enemy : MonoBehaviour
             {
                 rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * enemyMoveSpeed;
             }
+
+            if (enemyHealth <= 0)
+            {
+                WinGame();
+            }
         }
         else
         {
@@ -95,6 +102,11 @@ public class Enemy : MonoBehaviour
             if (rb.velocity.x > 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+        void WinGame()
+        {
+            SceneManager.LoadScene("WinScene");
         }
     }
 }
