@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI tmpGUI; // Reference to the TextMeshProUGUI component that displays the time
     private float startTime; // The time when the timer starts
     private bool timerIsRunning = false; // Flag to indicate if the timer is currently running
-    private float originalTimeLimit = 10f; // The original time limit for the timer in seconds
+    private float originalTimeLimit = 60f; // The original time limit for the timer in seconds
     private float timeLimit; // The current time limit for the timer in seconds
 
     void Start()
