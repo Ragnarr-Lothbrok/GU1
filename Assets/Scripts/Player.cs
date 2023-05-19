@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        speed = 500f;
+        speed = 800f;
 
         currentHealth = maxhealth;
     }
