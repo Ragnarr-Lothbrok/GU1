@@ -149,8 +149,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135674138}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -356.4929, y: -146.1595, z: 0}
-  m_LocalScale: {x: 1.4487923, y: 0.9751, z: 1}
+  m_LocalPosition: {x: -4, y: 1, z: 0}
+  m_LocalScale: {x: 48, y: 32, z: 3.2548}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 314533547}
@@ -280,8 +280,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Red Eclipse\r\n\r\nMove the player around the screen attacking the enemies
     and avoiding their attacks.\n \r\nSurvive for 10 minutes and you will be confronted
-    by God.\n\r\nPlayer will start with a sword and can pick up additional weapons
-    throughout the game.\r\n\nPick up XP orbs from enemy deaths to power up the player.\r\n"
+    by God.\n\r\nPlayer will start with a sword and additional weapons will unlock
+    every 2 minutes as well as a new enemy.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b918bdaf198bacf43a2ce32480f6f1ed, type: 2}
   m_sharedMaterial: {fileID: -1498723542201997712, guid: b918bdaf198bacf43a2ce32480f6f1ed, type: 2}
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -161.0329, y: 0, z: -189.53433, w: -228.01118}
+  m_margin: {x: -187.56494, y: 0, z: -189.53433, w: -188.46591}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
