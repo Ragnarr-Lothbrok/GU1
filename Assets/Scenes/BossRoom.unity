@@ -553,7 +553,7 @@ MonoBehaviour:
   localScale: {x: 0, y: 0}
   enemyMoveSpeed: 1
   isBoss: 1
-  enemyHealth: 20
+  enemyHealth: 50
   enemyDamage: 0
   pauseMove: 0
   moveTimer: 5
