@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Enemy : MonoBehaviour
 {
@@ -73,6 +75,11 @@ public class Enemy : MonoBehaviour
         if (isBoss == true)
         {
 
+            if (enemyHealth <= 0)
+            {
+                WinGame();
+            }
+
             if (testTimer <= 6)
             {
                 rb.velocity = new Vector2(moveToPlayer.x, moveToPlayer.y) * 0;
@@ -96,5 +103,10 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
+    }
+
+    void WinGame()
+    {
+        SceneManager.LoadScene("WinScene");
     }
 }

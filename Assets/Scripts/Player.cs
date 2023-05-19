@@ -4,6 +4,7 @@ using System.Collections.Generic;
 //using UnityEditor.VersionControl;//
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 
 public class Player : MonoBehaviour
@@ -41,6 +42,14 @@ public class Player : MonoBehaviour
         //  Debug.Log("input test ="+moveInput);
         rb.velocity = moveInput * speed * Time.deltaTime;
 
+
+        //Checking for Player Death
+        if (currentHealth <= 0)
+        {
+            GameOver();
+        }
+
+
         if (rb.velocity.x <= 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
@@ -73,6 +82,7 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            Debug.Log("COLLISION HAPPENING WITH " + collision.gameObject.name);
             currentHealth--;
         }
 
@@ -80,5 +90,10 @@ public class Player : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth = currentHealth - damage;
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("LoseScene");
     }
 }
