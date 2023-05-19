@@ -8,22 +8,21 @@ public class Weapons : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject scythe;
     public GameObject crossbow;
-    public GameObject deathhole;
+    public GameObject sword;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.parent = null;
-        rb = gameObject.GetComponent<Rigidbody2D>();
-
-
+        rb = gameObject.GetComponent<Rigidbody2D>();       
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.velocity = new Vector2(0, 10f);
-
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -55,7 +54,7 @@ public class Weapons : MonoBehaviour
         {
             Vector3 enemypos = collision.transform.position;
 
-            Instantiate(deathhole, enemypos, new Quaternion(0, 0, 0, 0));
+            Instantiate(sword, enemypos, new Quaternion(0, 0, 0, 0));
 
             Destroy(collision.gameObject);
             //collision.gameObject.SetActive(false);
