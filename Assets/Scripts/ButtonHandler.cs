@@ -17,4 +17,8 @@ public class ButtonHandler : MonoBehaviour
     {
         SceneManager.LoadScene("How-to");
     }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 }

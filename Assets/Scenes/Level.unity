@@ -180,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c6b038d45b805ac4489039a8f2dfcfd6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -785,7 +785,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 54b31541bcbf7e940900d82042536a73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -805,7 +805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207058785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.92, y: 7.72, z: 0}
+  m_LocalPosition: {x: -1.3, y: 6.09, z: 0}
   m_LocalScale: {x: 0.5969, y: 0.5969, z: 0.5969}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1088,7 +1088,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ca0e6d1d8e825d2428ac2cc4aa3509f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1108,7 +1108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623228490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.07, y: 11.68, z: 0}
+  m_LocalPosition: {x: 8.76, y: 12.76, z: 0}
   m_LocalScale: {x: 0.6832, y: 0.6832, z: 0.6832}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1534,6 +1534,10 @@ PrefabInstance:
       propertyPath: enemyHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2145891701553600581, guid: 1622c28edb4ae0a46a5e9ffcc712c811, type: 3}
+      propertyPath: enemyMoveSpeed
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1622c28edb4ae0a46a5e9ffcc712c811, type: 3}
 --- !u!1001 &4312241196723740271
@@ -1553,7 +1557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1200870536619101329, guid: 4f8aa8a08c87cc947bd7e0b84877e060, type: 3}
       propertyPath: enemyMoveSpeed
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1554838300745297344, guid: 4f8aa8a08c87cc947bd7e0b84877e060, type: 3}
       propertyPath: m_RootOrder
@@ -1691,7 +1695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2818296888428700348, guid: 792803ead0d36094d92a284bfdbbe809, type: 3}
       propertyPath: enemyMoveSpeed
-      value: 1.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7659159860926733721, guid: 792803ead0d36094d92a284bfdbbe809, type: 3}
       propertyPath: m_RootOrder
