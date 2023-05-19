@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     //Other Enemy Variables
     public int enemyHealth;
-    public int enemyDamage;
+    public float enemyDamage;
 
     //Boss Movement Extras
     public bool pauseMove = false;

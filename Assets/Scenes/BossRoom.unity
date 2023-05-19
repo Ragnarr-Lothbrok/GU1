@@ -554,7 +554,7 @@ MonoBehaviour:
   enemyMoveSpeed: 1
   isBoss: 1
   enemyHealth: 50
-  enemyDamage: 0
+  enemyDamage: 0.5
   pauseMove: 0
   moveTimer: 5
   testTimer: 10

@@ -1465,9 +1465,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 0.05
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.05
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1528,7 +1528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2145891701553600581, guid: 1622c28edb4ae0a46a5e9ffcc712c811, type: 3}
       propertyPath: enemyDamage
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2145891701553600581, guid: 1622c28edb4ae0a46a5e9ffcc712c811, type: 3}
       propertyPath: enemyHealth
@@ -1549,7 +1549,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1200870536619101329, guid: 4f8aa8a08c87cc947bd7e0b84877e060, type: 3}
       propertyPath: enemyDamage
-      value: 6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1200870536619101329, guid: 4f8aa8a08c87cc947bd7e0b84877e060, type: 3}
       propertyPath: enemyHealth
@@ -1662,7 +1662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2532802248087053397, guid: e32b5e9f6f6dce34fbcc911d88edbcc2, type: 3}
       propertyPath: enemyDamage
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2532802248087053397, guid: e32b5e9f6f6dce34fbcc911d88edbcc2, type: 3}
       propertyPath: enemyHealth
@@ -1687,7 +1687,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2818296888428700348, guid: 792803ead0d36094d92a284bfdbbe809, type: 3}
       propertyPath: enemyDamage
-      value: 10
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2818296888428700348, guid: 792803ead0d36094d92a284bfdbbe809, type: 3}
       propertyPath: enemyHealth
