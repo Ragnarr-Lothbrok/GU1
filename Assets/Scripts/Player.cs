@@ -5,6 +5,7 @@ using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
 public class Player : MonoBehaviour
 {
 
@@ -36,8 +37,8 @@ public class Player : MonoBehaviour
         float moveInputX = Input.GetAxisRaw("Horizontal");
         float moveInputY = Input.GetAxisRaw("Vertical");
 
-        moveInput = new Vector2 (moveInputX, moveInputY).normalized;
-      //  Debug.Log("input test ="+moveInput);
+        moveInput = new Vector2(moveInputX, moveInputY).normalized;
+        //  Debug.Log("input test ="+moveInput);
         rb.velocity = moveInput * speed * Time.deltaTime;
 
         if (rb.velocity.x <= 0)
@@ -55,8 +56,7 @@ public class Player : MonoBehaviour
             Instantiate(crossbowPF, gameObject.transform);
         }
     }
-
-    void OnDamage()
+        void OnDamage()
     {
         if (invulnerable) return;
         invulnerable = true;
@@ -79,6 +79,6 @@ public class Player : MonoBehaviour
     }
     void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        currentHealth = currentHealth - damage;
     }
 }

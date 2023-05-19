@@ -41,24 +41,24 @@ public class Enemy : MonoBehaviour
 
         if (moveTimer <= 0f && pauseMove == false)
         {
-            pauseMove= true;
+            pauseMove = true;
         }
 
         if (pauseMove == false)
         {
-           MoveEnemy();
+            MoveEnemy();
         }
 
-        if(pauseMove == true)
+        if (pauseMove == true)
         {
             pauseDuration -= Time.deltaTime;
 
-            if(pauseDuration <= 0f)
+            if (pauseDuration <= 0f)
             {
                 moveTimer = 5f;
                 pauseDuration = 3f;
                 testTimer = 10f;
-                pauseMove= false;
+                pauseMove = false;
             }
         }
 
