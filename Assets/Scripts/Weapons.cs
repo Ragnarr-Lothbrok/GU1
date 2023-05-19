@@ -5,61 +5,54 @@ using UnityEngine;
 public class Weapons : MonoBehaviour
 {
 
+    // 1 = sword, 2 = crossbow, 3 = scythe.
+
+
+
     private Rigidbody2D rb;
-    public GameObject scythe;
-    public GameObject crossbow;
-    public GameObject sword;
+
+    //This is the control that is to be set on each weapon in the Inspector
+    //KEY
+    // 1 = sword, 2 = crossbow, 3 = scythe.
+    public int weaponType = 0;
+    public GameObject swordPommel;
+
+
+
+    public float maxTimer;
+    public float minTimer;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.parent = null;
-        rb = gameObject.GetComponent<Rigidbody2D>();       
+        minTimer = maxTimer;  
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        rb.velocity = new Vector2(0, 10f);
+        minTimer -= Time.deltaTime;
+
+        if(weaponType == 1)
+        {
+            if(minTimer <= 0)
+            {
+                Animation anim = swordPommel.GetComponent<Animation>();
+                anim.Play();
+                minTimer = maxTimer;
+            }
+        }
     }
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Enemy")
-        {
-            Vector3 enemypos = collision.transform.position;
-
-            Instantiate(scythe, enemypos, new Quaternion(0, 0, 0, 0));
-
+        { 
             Destroy(collision.gameObject);
-            //collision.gameObject.SetActive(false);
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        }
-        else
-            if(collision.tag == "Enemy")
-        {
-            Vector3 enemypos = collision.transform.position;
-
-            Instantiate(crossbow, enemypos, new Quaternion(0, 0, 0, 0));
-
-            Destroy(collision.gameObject);
-            //collision.gameObject.SetActive(false);
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        }
-        else
-            if (collision.tag == "Enemy")
-        {
-            Vector3 enemypos = collision.transform.position;
-
-            Instantiate(sword, enemypos, new Quaternion(0, 0, 0, 0));
-
-            Destroy(collision.gameObject);
-            //collision.gameObject.SetActive(false);
-            gameObject.SetActive(false);
-            Destroy(gameObject);
+            Debug.Log("WEAPONHIT");
         }
     }
 }

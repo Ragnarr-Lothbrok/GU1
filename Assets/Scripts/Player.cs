@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
     public int currentHealth;
     private Rigidbody2D rb;
 
+    public GameObject weapon;
+
+    public Vector2 weaponAreaL, WeaponAreaR;
+
     //Damage Cooldown
     private float damageCoolDown = 1f;
     private bool invulnerable = false;
@@ -27,6 +31,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         speed = 800f;
+
+
 
         currentHealth = maxhealth;
     }
@@ -43,6 +49,7 @@ public class Player : MonoBehaviour
         rb.velocity = moveInput * speed * Time.deltaTime;
 
 
+
         //Checking for Player Death
         if (currentHealth <= 0)
         {
@@ -52,12 +59,19 @@ public class Player : MonoBehaviour
 
         if (rb.velocity.x <= 0)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            //  GetComponent<SpriteRenderer>().flipX = false;
+            // transform.rotation = transform.rotation;
+            //transform.Rotate(new Vector3(0, 0, 0));
+
+            // WE NEED TO GET TRANSFORM.ROTATION.Y TO 0 HERE
+
         }
         else
            if (rb.velocity.x > 0)
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            //  GetComponent<SpriteRenderer>().flipX = true;
+
+            // NEED TO SET TRANSFORM.ROTATION.Y TO 180 HERE.
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
