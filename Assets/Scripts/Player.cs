@@ -56,22 +56,24 @@ public class Player : MonoBehaviour
             GameOver();
         }
 
-
-        if (rb.velocity.x <= 0)
+        //MARKS UPDATED TURNING CODE.
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            //  GetComponent<SpriteRenderer>().flipX = false;
-            // transform.rotation = transform.rotation;
-            //transform.Rotate(new Vector3(0, 0, 0));
+            if (rb.velocity.x <= 0)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
 
-            // WE NEED TO GET TRANSFORM.ROTATION.Y TO 0 HERE
+                // WE NEED TO GET TRANSFORM.ROTATION.Y TO 0 HERE
 
+            }
         }
         else
-           if (rb.velocity.x > 0)
+            if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            //  GetComponent<SpriteRenderer>().flipX = true;
-
-            // NEED TO SET TRANSFORM.ROTATION.Y TO 180 HERE.
+            if (rb.velocity.x > 0)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -110,4 +112,12 @@ public class Player : MonoBehaviour
     {
         SceneManager.LoadScene("LoseScene");
     }
+
+    //private void FlipCharacterRight()
+    //{
+    //    if(rb.velocity <= 0)
+    //    {
+    //        Deb
+    //    }
+    //}
 }
