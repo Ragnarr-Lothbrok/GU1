@@ -16,8 +16,9 @@ public class Weapons : MonoBehaviour
     // 1 = sword, 2 = crossbow, 3 = scythe.
     public int weaponType = 0;
     public GameObject swordPommel;
-
-
+    public GameObject scythePommel;
+    public GameObject crossbowHilt;
+    public int index = 0;
 
     public float maxTimer;
     public float minTimer;
@@ -26,7 +27,9 @@ public class Weapons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        minTimer = maxTimer;  
+        minTimer = maxTimer;
+
+        
     }
 
 
@@ -39,6 +42,26 @@ public class Weapons : MonoBehaviour
             if(minTimer <= 0)
             {
                 Animation anim = swordPommel.GetComponent<Animation>();
+                anim.Play();
+                minTimer = maxTimer;
+            }
+        }
+
+        if (weaponType == 3)
+        {
+            if (minTimer <= 0)
+            {
+                Animation anim = crossbowHilt.GetComponent<Animation>();
+                anim.Play();
+                minTimer = maxTimer;
+            }
+        }
+
+        if (weaponType == 2)
+        {
+            if (minTimer <= 0)
+            {
+                Animation anim = scythePommel.GetComponent<Animation>();
                 anim.Play();
                 minTimer = maxTimer;
             }

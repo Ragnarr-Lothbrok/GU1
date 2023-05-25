@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public GameManager manager;
     public Camera checkCam;
     public GameObject Enemy;
-    
+
     public float maxPos = 2.4f;
     public float delayTimer = 2f;
     public float timeNeed = 10f;
@@ -19,13 +19,10 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-
         checkCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         manager = gameObject.GetComponent<GameManager>();
-       //manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        //manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         manager.enemies.Add(gameObject);
 
         height = checkCam.orthographicSize + 1;
@@ -40,10 +37,10 @@ public class EnemySpawner : MonoBehaviour
     {
         //spawn more enemies on a timer
         timer -= Time.deltaTime;
-        if(timer <= 0)
+        if (timer <= 0)
         {
-          //  Vector3 enemyPos = new Vector3(width, height, transform.position.z);
-          //  Instantiate(Enemy, enemyPos, transform.rotation);
+            //  Vector3 enemyPos = new Vector3(width, height, transform.position.z);
+            //  Instantiate(Enemy, enemyPos, transform.rotation);
             SetSpawnLocation();
             timer = delayTimer;
         }
@@ -52,11 +49,9 @@ public class EnemySpawner : MonoBehaviour
 
 
         //spawns enemies just outside camera border  
-       // float height = cam.orthographicSize + 1; 
-       // float width = cam.orthographicSize * cam.aspect + 1;
+        // float height = cam.orthographicSize + 1; 
+        // float width = cam.orthographicSize * cam.aspect + 1;
     }
-
-
 
     void SetSpawnLocation()
     {
@@ -64,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
         bool isBottom;
 
         float enemyPosY, enemyPosX;
-        
+
 
         int randomiser = 0;
 
@@ -72,7 +67,7 @@ public class EnemySpawner : MonoBehaviour
 
 
         // HORIZONTAL SPAWN CONTROLS
-        if(randomiser == 0)
+        if (randomiser == 0)
         {
             randomiser = Random.Range(-8, 8);
 
@@ -87,7 +82,7 @@ public class EnemySpawner : MonoBehaviour
 
         randomiser = Random.Range(0, 2);
 
-        
+
 
         if (randomiser == 0)
         {
