@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         }
 
         //MARKS UPDATED TURNING CODE.
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) ^ (Input.GetKeyDown(KeyCode.A)))
         {
             if (rb.velocity.x <= 0)
             {
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
             }
         }
         else
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) ^ (Input.GetKeyDown(KeyCode.D)))
         {
             if (rb.velocity.x > 0)
             {
