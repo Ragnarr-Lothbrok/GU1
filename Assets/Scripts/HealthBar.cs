@@ -7,7 +7,13 @@ public class HealthBar : MonoBehaviour
 {
 
     public Slider slider; //Allows the use of the bar slider.
+    private Player Player; //Adds player script.
+    //public int health = currentHealth;
 
+    void Start()
+    {
+        Player = GetComponent<Player>();
+    }
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
