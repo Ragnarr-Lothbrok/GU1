@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public int maxhealth = 25;
     public int currentHealth;
     private Rigidbody2D rb;
+    public GameObject hbHolder;
+    public HealthBar localHB;
 
     public GameObject weapon;
 
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
         speed = 800f;
 
 
-
+        localHB = hbHolder.GetComponent<HealthBar>();
         currentHealth = maxhealth;
     }
 
@@ -99,7 +101,9 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("COLLISION HAPPENING WITH " + collision.gameObject.name);
+            
             currentHealth--;
+            localHB.SetHealth(currentHealth);
         }
 
     }
@@ -112,12 +116,4 @@ public class Player : MonoBehaviour
     {
         SceneManager.LoadScene("LoseScene");
     }
-
-    //private void FlipCharacterRight()
-    //{
-    //    if(rb.velocity <= 0)
-    //    {
-    //        Deb
-    //    }
-    //}
 }
