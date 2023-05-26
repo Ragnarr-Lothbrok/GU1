@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Weapons : MonoBehaviour
 {
-
+    private Player Player;
     // 1 = sword, 2 = crossbow, 3 = scythe.
 
 
@@ -19,6 +20,9 @@ public class Weapons : MonoBehaviour
     public GameObject scythePommel;
     public GameObject crossbowHilt;
     public int index = 0;
+    public float speed = 5;
+    public float backspeed = -5;
+    
 
     public float maxTimer;
     public float minTimer;
@@ -28,6 +32,8 @@ public class Weapons : MonoBehaviour
     void Start()
     {
         minTimer = maxTimer;
+
+        Player = GetComponent<Player>();
 
         
     }
@@ -46,17 +52,16 @@ public class Weapons : MonoBehaviour
                 minTimer = maxTimer;
             }
         }
-
-        if (weaponType == 3)
-        {
-            if (minTimer <= 0)
-            {
-                Animation anim = crossbowHilt.GetComponent<Animation>();
-                anim.Play();
-                minTimer = maxTimer;
-            }
-        }
-
+        
+      //if (weaponType == 3)
+      //{
+          //if (minTimer <= 0)
+          //{
+              //transform.Rotate(new Vector3 (0,0,20)*Time.deltaTime);
+                
+          //}
+      //}
+        
         if (weaponType == 2)
         {
             if (minTimer <= 0)

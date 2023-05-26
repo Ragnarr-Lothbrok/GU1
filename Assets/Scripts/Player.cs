@@ -75,11 +75,6 @@ public class Player : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 180, 0);
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(crossbowPF, gameObject.transform);
-        }
     }
         void OnDamage()
     {
