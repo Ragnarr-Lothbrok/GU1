@@ -695,7 +695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &956314546
 Transform:
   m_ObjectHideFlags: 0
@@ -1058,6 +1058,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 1
   swordPommel: {fileID: 41332820}
+  scythePommel: {fileID: 0}
+  crossbowHilt: {fileID: 0}
+  index: 0
   maxTimer: 1.2
   minTimer: 0
 --- !u!1 &1207058785
@@ -1380,7 +1383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1494902700
 Transform:
   m_ObjectHideFlags: 0
@@ -1790,6 +1793,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 2
   swordPommel: {fileID: 956314545}
+  scythePommel: {fileID: 0}
+  crossbowHilt: {fileID: 0}
+  index: 0
   maxTimer: 1.2
   minTimer: 0
 --- !u!4 &1724984555
@@ -1918,6 +1924,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   swordPommel: {fileID: 1494902699}
+  scythePommel: {fileID: 0}
+  crossbowHilt: {fileID: 0}
+  index: 0
   maxTimer: 1.2
   minTimer: 0
 --- !u!4 &1779957686
