@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  maxhealth: 5
+  maxhealth: 25
   currentHealth: 0
   weapon: {fileID: 41332820}
   weaponAreaL: {x: 0, y: 0}

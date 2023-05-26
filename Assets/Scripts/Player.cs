@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 {
 
     public float speed;
-    public int maxhealth = 5;
+    public int maxhealth = 25;
     public int currentHealth;
     private Rigidbody2D rb;
 
