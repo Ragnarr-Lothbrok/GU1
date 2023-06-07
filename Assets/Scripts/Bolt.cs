@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Bolt : MonoBehaviour
 {
 
@@ -34,4 +35,5 @@ public class Bolt : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

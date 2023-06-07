@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &41332821
 Transform:
   m_ObjectHideFlags: 0
@@ -700,6 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2f46504c59ef84eb06cbc9dc41f7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Crossbow: {fileID: 0}
 --- !u!1 &1058687711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1494902700
 Transform:
   m_ObjectHideFlags: 0
@@ -1601,7 +1602,7 @@ MonoBehaviour:
   speed: 0
   maxhealth: 25
   currentHealth: 0
-  hbHolder: {fileID: 0}
+  hbHolder: {fileID: 2106546570}
   localHB: {fileID: 0}
   weapon: {fileID: 41332820}
   weaponAreaL: {x: 0, y: 0}
